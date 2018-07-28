@@ -22,4 +22,9 @@ RSpec.describe Pirate, type: :model do
     pirate.dmg = nil
     expect(pirate).to_not be_valid
   end
+  it "returns all his fights" do
+    f1 = create :fight, pirate_a: pirate
+    f2 = create :fight, pirate_b: pirate
+    expect(pirate.fights).to eq [f1, f2]
+  end
 end

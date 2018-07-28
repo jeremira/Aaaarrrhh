@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :fight do
-    pirate_a
-    pirate_b
+    association :pirate_a, factory: :pirate
+    association :pirate_b, factory: :pirate
   end
 end
