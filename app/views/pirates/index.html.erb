@@ -1,15 +1,8 @@
 <h1>AAAARRRHH ! Make me fight !</h1>
 
 <h2>Show me all me farrgin' crew !</h2>
-<%= form_for @pirate do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :hp %>
-  <%= f.select :hp, options_for_select((0..10).step(1).to_a.map{|i| ["#{i}", i]})%>
-  <%= f.label :dmg %>
-  <%= f.select :dmg, options_for_select((0..10).step(1).to_a.map{|i| ["#{i}", i]})%>
-  <%= f.submit "Get me a new pirate !" %>
-<% end %>
+<%= render partial: "form_core", locals: { pirate: @pirate, btn_label: "Get me a new pirate !"} %>
+
 <ul>
   <%= render @pirates %>
 </ul>
