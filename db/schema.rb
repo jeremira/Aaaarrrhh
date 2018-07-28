@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180728072751) do
+ActiveRecord::Schema.define(version: 20180728122419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "fights", force: :cascade do |t|
+    t.bigint "pirate_a_id"
+    t.bigint "pirate_b_id"
+    t.integer "winner", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pirate_a_id"], name: "index_fights_on_pirate_a_id"
+    t.index ["pirate_b_id"], name: "index_fights_on_pirate_b_id"
+  end
 
   create_table "pirates", force: :cascade do |t|
     t.string "name"
@@ -23,4 +33,6 @@ ActiveRecord::Schema.define(version: 20180728072751) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "fights", "pirates", column: "pirate_a_id"
+  add_foreign_key "fights", "pirates", column: "pirate_b_id"
 end

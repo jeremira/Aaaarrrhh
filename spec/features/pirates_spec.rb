@@ -16,7 +16,7 @@ RSpec.feature "Pirates", type: :feature do
   describe "I create a new pirate" do
     before(:each) {visit root_path}
 
-    context "with valid name" do
+    context "wit' valid name" do
       before :each do
         fill_in :pirate_name, with: "new_pirate"
         click_button "Get me a new pirate !"
@@ -28,19 +28,19 @@ RSpec.feature "Pirates", type: :feature do
         expect(page).to have_content "A new pirate has been add t' th' crew !"
       end
     end
-    context "with no name" do
-      it "do not save a new pirate" do
+    context "wit' no name" do
+      it "do nah save a new pirate" do
         click_button "Get me a new pirate !"
         expect(Pirate.count).to eq 0
       end
     end
-    context "with a duplicate name" do
+    context "wit' a duplicate name" do
       before :each do
         pirate1
         fill_in :pirate_name, with: pirate1.name
         click_button "Get me a new pirate !"
       end
-      it "do not save a new pirate" do
+      it "do nah save a new pirate" do
         expect(Pirate.find_by(name: "new_pirate")).to be nil
       end
       it "display a flash message" do
@@ -56,7 +56,7 @@ RSpec.feature "Pirates", type: :feature do
       click_link "Change th' pirate !"
     end
 
-    context "with valid params" do
+    context "wit' valid params" do
       before :each do
         fill_in :pirate_name, with: "edit_pirate"
         click_button "Save me pirate"
@@ -70,23 +70,23 @@ RSpec.feature "Pirates", type: :feature do
       end
     end
 
-    context "with no name" do
+    context "wit' nah name" do
       before :each do
         fill_in :pirate_name, with: ""
         click_button "Save me pirate"
       end
-      it "do update pirate details" do
+      it "do nah update pirate details" do
         pirate1.reload
         expect(pirate1.name).to_not be ""
       end
     end
 
-    context "with a duplicate name" do
+    context "wit' a duplicate name" do
       before :each do
         fill_in :pirate_name, with: pirate2.name
         click_button "Save me pirate"
       end
-      it "do update pirate details" do
+      it "do nah update pirate details" do
         pirate1.reload
         expect(pirate1.name).to_not be pirate2.name
       end
