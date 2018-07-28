@@ -1,0 +1,6 @@
+<li>
+  <p><%= truncate(pirate.name) %> <%= link_to "Change th' pirate !", edit_pirate_path(pirate) %></p>
+  <span>HPs : <%= pirate.hp %></span>
+  <span>Dmg : <%= pirate.dmg %></span>
+  <%= button_to "Scuttle th' pirate !", pirate_path(pirate), :method => :delete %>
+</li>

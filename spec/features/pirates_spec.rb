@@ -8,18 +8,17 @@ RSpec.feature "Pirates", type: :feature do
     pirate1
     pirate2
     visit root_path
-    expect(page).to have_content "AAAARRRHH ! Make me fight"
+    expect(page).to have_content "AAAARRRHH ! Make me fight !"
     expect(page).to have_content pirate1.name
     expect(page).to have_content pirate2.name
   end
 
   scenario "I can create a new pirate" do
     visit root_path
-    click_button "Get me a new pirate !"
     fill_in :name, with: "new_pirate"
     select 5, from: "hp"
     select 5, from: "dmg"
-    click_button "Save me pirate"
+    click_button "Get me a new pirate !"
     expect(page).to have_content "A new pirate has been add t' th' crew !"
     expect(Pirate.find_by(name: "new_pirate")).to be_an Pirate
   end
@@ -27,7 +26,7 @@ RSpec.feature "Pirates", type: :feature do
   scenario "I can change me bloody pirate details" do
     pirate1
     visit root_path
-    click_button "change th' pirate !"
+    click_button "Change th' pirate !"
     fill_in :name, with: "edit_name"
     click_button "Save me pirate"
     expect(page).to have_content "Pirate's changes has been saved t' rthe registe"
@@ -38,7 +37,8 @@ RSpec.feature "Pirates", type: :feature do
   scenario "I can scuttle me useless pirate" do
     create :pirate, name: "deleted_pirate"
     visit root_path
-    click_button "scuttle th' pirate !"
+    click_button "Scuttle th' pirate !"
+    expect(page).to have_content "Ahahahaha ! Ye did it ! We scuttle this useless brat !"
     expect(page).to_not have_content("deleted_pirate")
     expect(Pirate.find_by(name: "deleted_pirate")).to be nil
   end

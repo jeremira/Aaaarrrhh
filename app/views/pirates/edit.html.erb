@@ -1,0 +1,9 @@
+<%= form_for @pirate do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :hp %>
+  <%= f.select :hp, options_for_select((0..10).step(1).to_a.map{|i| ["#{i}", i]})%>
+  <%= f.label :dmg %>
+  <%= f.select :dmg, options_for_select((0..10).step(1).to_a.map{|i| ["#{i}", i]})%>
+  <%= f.submit "Save me pirate" %>
+<% end %>
