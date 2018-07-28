@@ -4,14 +4,13 @@ class Fight < ApplicationRecord
 
   has_many :steps
 
-  def machine_learning_disruptive_blockained_ia_fight_processor
+  def machine_learning_disruptive_blockchained_ia_fight_processor
     #include other buzz word
     self.winner = 1
     self.steps << Step.new(content: "Boubah baka")
   end
 
   def winner_name
-    byebug
     default = "Nobody win !Ye fork faced panty waist!"
     case self.winner
     when 2
