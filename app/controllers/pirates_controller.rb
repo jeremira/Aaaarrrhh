@@ -2,6 +2,7 @@ class PiratesController < ApplicationController
 
   def index
     @pirate = Pirate.new
+    @fight = Fight.new
     @pirates = Pirate.order(:id)
   end
 
