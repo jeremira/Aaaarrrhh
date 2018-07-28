@@ -15,9 +15,9 @@ RSpec.feature "Pirates", type: :feature do
 
   scenario "I can create a new pirate" do
     visit root_path
-    fill_in :name, with: "new_pirate"
-    select 5, from: "hp"
-    select 5, from: "dmg"
+    fill_in :pirate_name, with: "new_pirate"
+    select 5, from: :pirate_hp
+    select 5, from: :pirate_dmg
     click_button "Get me a new pirate !"
     expect(page).to have_content "A new pirate has been add t' th' crew !"
     expect(Pirate.find_by(name: "new_pirate")).to be_an Pirate
@@ -26,12 +26,12 @@ RSpec.feature "Pirates", type: :feature do
   scenario "I can change me bloody pirate details" do
     pirate1
     visit root_path
-    click_button "Change th' pirate !"
-    fill_in :name, with: "edit_name"
+    click_link "Change th' pirate !"
+    fill_in :pirate_name, with: "edit_name"
     click_button "Save me pirate"
     expect(page).to have_content "Pirate's changes has been saved t' rthe registe"
     expect(page).to have_content "edit_name"
-    expect(Pirate.find_by(name: "edit_pirate")).to be_an Pirate
+    expect(Pirate.find_by(name: "edit_name")).to be_an Pirate
   end
 
   scenario "I can scuttle me useless pirate" do
