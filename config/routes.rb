@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root 'pirates#index'
 
   resources :pirates
-  resources :fight, only: [:show, :index, :create]
+  resources :fights, only: [:show, :index, :create]
 end

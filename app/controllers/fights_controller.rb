@@ -10,7 +10,7 @@ class FightsController < ApplicationController
 
   def create
     @fight = Fight.new(fight_params)
-    @fight.process_fight
+    @fight.machine_learning_disruptive_blockchained_ia_fight_processor
     if @fight.save
       redirect_to @fight
     else
