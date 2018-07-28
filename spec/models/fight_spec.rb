@@ -16,4 +16,34 @@ RSpec.describe Fight, type: :model do
     expect(fight.pirate_b).to be_an Pirate
   end
 
+  describe "#winner_name" do
+    context "undefined winned" do
+      it "return default value" do
+        expect(fight.winner_name).to eq "Nobody win !Ye fork faced panty waist!"
+      end
+    end
+    context "player A won" do
+      it "return player A name" do
+        fight.winner = 1
+        expect(fight.winner_name).to eq fight.pirate_a.name
+      end
+    end
+    context "player B won" do
+      it "return player B name" do
+        fight.winner = 2
+        expect(fight.winner_name).to eq fight.pirate_b.name
+      end
+    end
+  end
+
+  describe "#machine_learning_disruptive_blockained_ia_fight_processor" do
+    before(:each) {fight.machine_learning_disruptive_blockained_ia_fight_processor}
+    it "setup player_a as a winner" do
+      expect(fight.winner).to eq 1
+    end
+    it "create a step" do
+      expect(fight.steps.size).to eq 1
+    end
+  end
+
 end

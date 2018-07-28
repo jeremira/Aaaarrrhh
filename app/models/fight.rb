@@ -9,4 +9,17 @@ class Fight < ApplicationRecord
     self.winner = 1
     self.steps << Step.new(content: "Boubah baka")
   end
+
+  def winner_name
+    byebug
+    default = "Nobody win !Ye fork faced panty waist!"
+    case self.winner
+    when 2
+      return self.pirate_b.name rescue default
+    when 1
+      return self.pirate_a.name rescue default
+    else
+      return default
+    end
+  end
 end

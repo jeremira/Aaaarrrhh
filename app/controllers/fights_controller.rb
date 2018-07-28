@@ -2,6 +2,11 @@ class FightsController < ApplicationController
 
   def show
     @fight = Fight.find_by(id: params[:id])
+    if @fight
+      @steps = @fight.steps
+    else
+      redirect_to root_path, alert: "Bloody Davy Jones' locker. 'tis wrong !"
+    end
   end
 
   def index
