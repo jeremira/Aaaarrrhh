@@ -37,12 +37,12 @@ RSpec.describe Fight, type: :model do
   end
 
   describe "#machine_learning_disruptive_blockained_ia_fight_processor" do
-    before(:each) {fight.machine_learning_disruptive_blockained_ia_fight_processor}
-    it "setup player_a as a winner" do
-      expect(fight.winner).to eq 1
+    before(:each) {fight.machine_learning_disruptive_blockchained_ia_fight_processor}
+    it "setup a pirate as a winner" do
+      expect(fight.winner).to_not eq 0
     end
-    it "create a step" do
-      expect(fight.steps.size).to eq 1
+    it "create some steps" do
+      expect(fight.steps.size).to_not be_empty
     end
   end
 

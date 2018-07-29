@@ -21,4 +21,19 @@ class Fight < ApplicationRecord
       return default
     end
   end
+
+  private
+
+  def first_blow
+    # Speed contest to get weapon and first strike
+  end
+
+  def main_struggle
+    # Hp/dmg contest
+  end
+
+  def last_hope
+    # Luck end of game
+  end
+  
 end
