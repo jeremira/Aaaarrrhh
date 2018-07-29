@@ -25,13 +25,13 @@ RSpec.describe Fight, type: :model do
     context "player A won" do
       it "return player A name" do
         fight.winner = 1
-        expect(fight.winner_name).to eq fight.pirate_a.name
+        expect(fight.winner_name).to eq fight.pirate_a.name.capitalize
       end
     end
     context "player B won" do
       it "return player B name" do
         fight.winner = 2
-        expect(fight.winner_name).to eq fight.pirate_b.name
+        expect(fight.winner_name).to eq fight.pirate_b.name.capitalize
       end
     end
   end
@@ -42,7 +42,7 @@ RSpec.describe Fight, type: :model do
       expect(fight.winner).to_not eq 0
     end
     it "create some steps" do
-      expect(fight.steps.size).to_not be_empty
+      expect(fight.steps).to_not be_empty
     end
   end
 
