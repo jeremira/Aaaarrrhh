@@ -3,7 +3,7 @@ class FightsController < ApplicationController
   def show
     @fight = Fight.find_by(id: params[:id])
     if @fight
-      @steps = @fight.steps
+      @steps = @fight.steps.order(:id)
     else
       redirect_to root_path, alert: "Bloody Davy Jones' locker. 'tis wrong !"
     end
