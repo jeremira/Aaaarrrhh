@@ -1,3 +1,24 @@
-<h1>Ye chimp faced rotatin' snot rag of <%= @fight.winner_name %> win !"</h1>
-<ul><%= render @steps %></ul>
-<%= link_to "Again ye nauseatin' back stabbin' spit weasel !", root_path %>
+<section id="fight-story-block text-center">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Come 'ere an' have a cutlass sandwich, YE fight well !</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 text-right">
+      <h3><%= @fight.pirate_a.name.capitalize %></h5>
+      <h1><%= @fight.winner == 1 ? "WINNAH" : "LOOSA" %>
+    </div>
+    <div class="col-sm-6 text-left">
+      <h3><%= @fight.pirate_b.name.capitalize %></h5>
+      <h1><%= @fight.winner == 2 ? "WINNAH" : "LOOSA" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h5>let's booty-ole-leg tell us this tale again</h5>
+      <ul class="list-group"><%= render @steps %></ul>
+      <%= link_to "Again ye nauseatin' back stabbin' spit weasel !", root_path %>
+    </div>
+  </div>
+</section>

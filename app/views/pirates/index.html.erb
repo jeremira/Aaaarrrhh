@@ -1,16 +1,49 @@
-<h1>AAAARRRHH ! Make me fight !</h1>
+<section id="new-fight-block">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>AAAARRRHH ! Make me fight !</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= form_for @fight do |f| %>
+        <div class="row">
+          <div class="col-sm-6 text-right">
+            <%= f.label :pirate_a_id %>
+            <%= f.select :pirate_a_id, Pirate.pluck(:name, :id) %>
+          </div>
+          <div class="col-sm-6 text-left">
+            <%= f.label :pirate_b_id %>
+            <%= f.select :pirate_b_id, Pirate.pluck(:name, :id) %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <%= f.submit "Fight ! Ye syphilitic puppy killin' slimey bastitch !" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
 
-<%= form_for @fight do |f| %>
-  <%= f.label :pirate_a_id %>
-  <%= f.select :pirate_a_id, Pirate.pluck(:name, :id) %>
-  <%= f.label :pirate_b_id %>
-  <%= f.select :pirate_b_id, Pirate.pluck(:name, :id) %>
-  <%= f.submit "Fight ! Ye syphilitic puppy killin' slimey bastitch !" %>
-<% end %>
-
-<h2>Show me all me farrgin' crew !</h2>
-<%= render partial: "form_core", locals: { pirate: @pirate, btn_label: "Get me a new pirate !"} %>
-
-<ul>
-  <%= render @pirates %>
-</ul>
+<section id="pirates-list-block">
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>All me farrgin' crew :</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= render partial: "form_core", locals: { pirate: @pirate, btn_label: "Get me a new pirate !"} %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <ul class="list-group bg-dark">
+        <%= render @pirates %>
+      </ul>
+    </div>
+  </div>
+  </div>
+</section>
