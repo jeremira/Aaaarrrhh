@@ -53,7 +53,7 @@ RSpec.feature "Pirates", type: :feature do
     before(:each) do
       pirate1
       visit root_path
-      click_link "Change th' pirate !"
+      click_link "Edit th' pirate !"
     end
 
     context "wit' valid params" do

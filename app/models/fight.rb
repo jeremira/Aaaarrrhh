@@ -5,7 +5,7 @@ class Fight < ApplicationRecord
   has_many :steps
 
   def machine_learning_disruptive_blockchained_ia_fight_processor
-    # score is [pirate_a, pirate_b] points
+    # score is [pirate_a, pirate_b] fight's points
     score = first_blow
     score = main_struggle(score)
     score = last_hope(score)
@@ -17,18 +17,6 @@ class Fight < ApplicationRecord
       insert_step("#{self.pirate_b.name} cut #{self.pirate_b.name} both hand with a spoon :")
       insert_step("Lemme spell out the rules for ye. I win. YOU LOSE! ye chimp faced rotatin' snot rag !")
       self.winner = 2
-    end
-  end
-
-  def winner_name
-    default = "Nobody win !Ye fork faced panty waist!"
-    case self.winner
-    when 2
-      return self.pirate_b.name.capitalize rescue default
-    when 1
-      return self.pirate_a.name.capitalize rescue default
-    else
-      return default
     end
   end
 
